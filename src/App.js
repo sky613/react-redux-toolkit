@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+
+import { Route, Routes } from 'react-router-dom';
+
+import { GlobalStyle } from './styles/GlobalStyle';
+import AppLayout from './views/shared/layout/AppLayout';
+import NotFound from './views/shared/result/NotFound';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Container>
+        <GlobalStyle />
+        <Routes>
+          <Route exact path="/" element={<AppLayout />} />
+          <Route path="/:id" element={<AppLayout />} />
+
+          <Route path="*" component={<NotFound />} />
+        </Routes>
+      </Container>
     </div>
   );
 }
-
+const Container = styled.div`
+  // min-width: 1024px;
+`;
 export default App;
