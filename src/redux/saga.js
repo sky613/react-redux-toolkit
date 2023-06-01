@@ -1,5 +1,6 @@
 import { all, fork } from 'redux-saga/effects';
 
+import listMgtSaga from '../views/listMgt/listSearch/redux/sags';
 import commonSaga from './commonSaga';
 
 export default function* rootSaga() {
@@ -7,5 +8,6 @@ export default function* rootSaga() {
   // all : 제너레이터 함수를 배열의 형태로 인자로 넣어주면, 제너레이터 함수들이 병행적으로 동시에 실행되고, 전부 resolve될때까지 기다린다
   yield all([
     fork(commonSaga),
+    fork(listMgtSaga),
   ]);
 }
