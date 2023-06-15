@@ -13,6 +13,7 @@ const initialState = {
   headerToggle: false,
   expiredTime: null,
   messageList: [], // { id: number, type: 'alert or confirm', message: 'string', onOk: func() }   alert 및 confirm 공통 객체
+  toastMessageList: [],
 };
 
 // 새로운 페이지 data
@@ -50,6 +51,12 @@ export const { actions, reducer } = createSlice({
     removeMessage: (state, { payload }) => {
       state.messageList = state.messageList.filter((v) => v.id !== payload);
     },
+    addToastMessage: (state, { payload }) => {
+      state.toastMessageList = [...state.toastMessageList, payload];
+    },
+    removeToastMessage: (state, { payload }) => {
+      state.toastMessageList = state.toastMessageList.filter((v) => v.id !== payload);
+    },
   },
 });
 
@@ -59,7 +66,8 @@ export const {
   setActivePageId,
   addMessage,
   removeMessage,
-
+  addToastMessage,
+  removeToastMessage,
 } = actions;
 
 export default reducer;

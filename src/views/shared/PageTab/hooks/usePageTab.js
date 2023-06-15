@@ -80,13 +80,14 @@ export const usePageTab = () => {
       updateNextPages(nextOpenedPages);
       return;
     }
-
-    const opendPagesActive = openedPages.some((p) => p.id === id);
-    if (openedPages.length > maxOpendPages && !opendPagesActive) {
-      alertMessage(`
+    if (openedPages) {
+      const opendPagesActive = openedPages.some((p) => p.id === id);
+      if (openedPages.length > maxOpendPages && !opendPagesActive) {
+        alertMessage(`
         메뉴는 최대 10개 까지 사용 가능합니다.
         다른 창을 종료후 사용해 주세요.`);
-      return;
+        return;
+      }
     }
 
     const prevOpenedPages = loadOpenedPages();
@@ -173,9 +174,11 @@ export const usePageTab = () => {
     if (isPageId(prevHistory)) {
       dispatch(setActivePageId({ id: prevHistory, isSideBar: false }));
       const prevOpenedPages = loadOpenedPages();
-      const openedPageIds = prevOpenedPages.some((p) => p.id === prevHistory);
-      if (!openedPageIds) {
-        setOpenNewPage(prevHistory, prevOpenedPages);
+      if (prevOpenedPages) {
+        const openedPageIds = prevOpenedPages.some((p) => p.id === prevHistory);
+        if (!openedPageIds) {
+          setOpenNewPage(prevHistory, prevOpenedPages);
+        }
       }
     }
   }, [location]);

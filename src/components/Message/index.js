@@ -75,12 +75,12 @@ function Message({ id, type = 'alert', message, onOk, okText = '확인', cancelT
             {
               type === 'alert' ? (
                 <>
-                  <Button width="140" height="40" type="fillBlue" buttonRef={okRef} onClick={() => onClickOkBtn()}>{okText}</Button>
+                  <Button width="140" height="40" buttonRef={okRef} onClick={() => onClickOkBtn()}>{okText}</Button>
                 </>
               ) : (
                 <>
                   <CancelButton width="140" height="40" buttonRef={cancelRef} onClick={() => onClickCancelBtn()}>{cancelText}</CancelButton>
-                  <Button width="140" height="40" type="fillBlue" buttonRef={okRef} onClick={() => onClickOkBtn()}>{okText}</Button>
+                  <Button width="140" height="40" buttonRef={okRef} onClick={() => onClickOkBtn()}>{okText}</Button>
                 </>
               )
             }
@@ -130,6 +130,7 @@ const ButtonWrap = styled.div`
 
 const CancelButton = styled(Button)`
   margin-right: 10px;
+  background-color: red;
 `;
 
 export default Message;

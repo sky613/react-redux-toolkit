@@ -96,4 +96,12 @@ export const GlobalStyle = createGlobalStyle`
     z-index: 9999;
   }
 
+  /* .ant-message  {
+    background-color: red;
+    bottom: 10px;
+  }
+  .ant-message .ant-message-notice .ant-message-notice-content {
+    position: absolute;
+    bottom: 100px;
+  } */
 `;

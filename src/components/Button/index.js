@@ -49,15 +49,25 @@ const ButtonStyled = styled.button`
     opacity: 0.5;
   }
   &:hover:not([disabled]) {
-    border: 1px solid var(--color-gray-200);
+    border: 1px solid lightblue;
     background-color: #fff;
-    color: var(--color-gray-500);
+    color: blue;
   }
   &:active:not([disabled]),
   &:focus:not([disabled]) {
-    border: 1px solid var(--color-gray-500);
-    background-color: var(--color-gray-50);
-    color: var(--color-gray-600);
+    border: 1px solid blue;
+    background-color: lightblue;
+    color: gray;
+  }
+  &:hover:not([disabled]) {
+    border: 1px solid lightblue;
+    background-color:lightblue;
+    color: white;
+  }
+  &:active:not([disabled]), &:focus:not([disabled]) {
+    border: 1px solid blue;
+    background-color: blue;
+    color: white;
   }
   ${(props) => {
     if (props.size === 'small') {
