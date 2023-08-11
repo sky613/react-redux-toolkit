@@ -21,7 +21,7 @@ function App() {
           <Route exact path="/" element={<AppLayout />} />
           <Route path="/:id" element={<AppLayout />} />
 
-          <Route path="*" component={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         {
           messageList.map((v, index) => (
