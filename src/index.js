@@ -10,6 +10,7 @@ import { sagaMiddleware, store } from './redux/store';
 
 import 'moment/locale/ko';
 import App from './App';
+import './locales/i18n';
 import rootSaga from './redux/saga';
 
 // saga 실행
